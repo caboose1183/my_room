@@ -10,12 +10,12 @@ function App() {
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
   const floor1Material = new THREE.MeshStandardMaterial({
-    color: "#115111",
+    color: "#2e302f",
     metalness: 0,
     roughness: 0,
   });
 
-  const desk = useGLTF("./Desk.glb");
+  const desk = useGLTF("./Adjustable_Desk.glb");
 
   // desk.scene.children.forEach((mesh) => {
   //   mesh.castShadow = true;
@@ -31,6 +31,8 @@ function App() {
           position: [2.5, 4, 6],
         }}
       >
+        <color args={["#252731"]} attach="background" />
+
         <OrbitControls makeDefault />
 
         <directionalLight
@@ -51,21 +53,35 @@ function App() {
         <mesh
           geometry={boxGeometry}
           material={floor1Material}
-          position={[0, 0, 0]}
+          position={[0, -2, 0]}
           scale={[4, 0.2, 4]}
         />
 
         {/* left wall */}
         <mesh
-          position={[-2.15, 0.65, 1]}
+          position={[-2.1, -0.1, 0]}
           geometry={boxGeometry}
           material={floor1Material}
-          scale={[0.2, 3, 5]}
+          scale={[0.2, 4, 4]}
           receiveShadow
         />
 
         {/* right wall */}
-        
+        <mesh
+          position={[0, -0.1, -2]}
+          geometry={boxGeometry}
+          material={floor1Material}
+          scale={[4, 4, 0.2]}
+          receiveShadow
+        />
+
+        {/* Desk */}
+        <primitive
+          object={desk.scene}
+          scale={0.8}
+          rotation-y={Math.PI * 1.5}
+          position={[0, -1.9, -1.4]}
+        />
       </Canvas>
     </main>
   );
