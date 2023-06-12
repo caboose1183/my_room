@@ -21,14 +21,21 @@ function App() {
   //   mesh.castShadow = true;
   // });
 
+  const desktop = useGLTF("./Computer.glb");
+
+  const cactus = useGLTF("./Houseplant.glb");
+  const bigPlant = useGLTF("./PlantBig.glb");
+
+  const printer = useGLTF("./Printer.glb");
+
   return (
     <main className="h-screen w-full">
       <Canvas
         camera={{
-          fov: 45,
+          fov: 75,
           near: 0.1,
           far: 200,
-          position: [2.5, 4, 6],
+          position: [2.5, 1, 6],
         }}
       >
         <color args={["#252731"]} attach="background" />
@@ -59,10 +66,10 @@ function App() {
 
         {/* left wall */}
         <mesh
-          position={[-2.1, -0.1, 0]}
+          position={[-2.1, -0.1, -0.05]}
           geometry={boxGeometry}
           material={floor1Material}
-          scale={[0.2, 4, 4]}
+          scale={[0.2, 4, 4.1]}
           receiveShadow
         />
 
@@ -81,6 +88,35 @@ function App() {
           scale={0.8}
           rotation-y={Math.PI * 1.5}
           position={[0, -1.9, -1.4]}
+        />
+
+        {/* Desktop */}
+        <primitive
+          object={desktop.scene}
+          scale={0.001}
+          position={[-0.2, -1.15, -1.45]}
+        />
+
+        {/* Cactus */}
+        <primitive
+          object={cactus.scene}
+          scale={0.5}
+          position={[-0.6, -1.1, -1.6]}
+        />
+
+        {/* Big Plant */}
+        <primitive
+          object={bigPlant.scene}
+          scale={1.1}
+          position={[-1.4, -1.9, 1.8]}
+        />
+
+        {/* Printer */}
+        <primitive
+          object={printer.scene}
+          scale={1}
+          rotation-y={Math.PI * 1.8}
+          position={[0.5, -1.15, -1.45]}
         />
       </Canvas>
     </main>
