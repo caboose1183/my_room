@@ -27,6 +27,15 @@ function App() {
   const bigPlant = useGLTF("./PlantBig.glb");
 
   const printer = useGLTF("./Printer.glb");
+  const lamp = useGLTF("./Light_floor.glb");
+  const boxes = useGLTF("./Cardboard_boxes.glb");
+  const trashcan = useGLTF("./Trashcan_small.glb");
+
+  const gundam = useGLTF("./gundam.glb");
+  const chair = useGLTF("./Chair.glb");
+
+  const wallArt = useGLTF("./wall_art6.glb");
+  const wallArt2 = useGLTF("./wall_art3.glb");
 
   return (
     <main className="h-screen w-full">
@@ -101,7 +110,7 @@ function App() {
         <primitive
           object={cactus.scene}
           scale={0.5}
-          position={[-0.6, -1.1, -1.6]}
+          position={[-0.6, -1.15, -1.6]}
         />
 
         {/* Big Plant */}
@@ -117,6 +126,62 @@ function App() {
           scale={1}
           rotation-y={Math.PI * 1.8}
           position={[0.5, -1.15, -1.45]}
+        />
+
+        {/* Lamp */}
+        <primitive
+          object={lamp.scene}
+          scale={1.5}
+          rotation-y={Math.PI * 1.8}
+          position={[-1.6, -1.92, -1.45]}
+        />
+
+        {/* Boxes */}
+        <primitive
+          object={boxes.scene}
+          scale={0.7}
+          rotation-y={Math.PI * 1.6}
+          position={[1.3, -1.92, -1.3]}
+        />
+
+        {/* Trashcan */}
+        <primitive
+          object={trashcan.scene}
+          scale={0.8}
+          rotation-y={Math.PI * 1.55}
+          position={[0.4, -1.92, -1.3]}
+        />
+
+        {/* Gundam */}
+        <primitive
+          object={gundam.scene}
+          scale={0.1}
+          rotation-y={Math.PI * 1.2}
+          position={[-0.66, -1.01, -1.3]}
+        />
+
+        {/* Chair */}
+        <primitive
+          object={chair.scene}
+          scale={1}
+          rotation-y={Math.PI * 1.2}
+          position={[-0.1, -1.9, -0.5]}
+        />
+
+        {/* Wall Art */}
+        <primitive
+          object={wallArt.scene}
+          scale={1}
+          rotation-y={Math.PI * 1.5}
+          position={[-1.99, 0, -0.7]}
+        />
+
+        {/* Wall Art 2 */}
+        <primitive
+          object={wallArt2.scene}
+          scale={1}
+          rotation-y={Math.PI * 1.5}
+          position={[-1.99, 0, -0.1]}
         />
       </Canvas>
     </main>
